@@ -73,4 +73,11 @@ public abstract class Area implements IArea {
 	 */
 	public double calcConsumedEnergy() 
 		{return energy_cost;}
+	
+	public String toString() {
+		String string;
+		string = String.format("%12.2f %12.2f %12.2f %12.2f", 
+				basicEnergyCost, elevation, radiation, energy_cost);
+		return string;
+	}
 }

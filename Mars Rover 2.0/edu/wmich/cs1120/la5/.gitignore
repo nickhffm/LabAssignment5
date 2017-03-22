@@ -7,3 +7,11 @@
 /LowArea.class
 /MapCreator.class
 /Rover.class
+/Expression.class
+/Operation.class
+/IOperation.class
+/IExpression.class
+/MapCreatorFromTxt.class
+/EnergyAnalyzer.class
+/ElevationAnalyzer.class
+/RadiationAnalyzer.class

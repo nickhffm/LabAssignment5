@@ -1,5 +1,6 @@
 package edu.wmich.cs1120.la5;
 
-public class IExpression {
-
+public interface IExpression {
+	
+	public Integer getValue();
 }

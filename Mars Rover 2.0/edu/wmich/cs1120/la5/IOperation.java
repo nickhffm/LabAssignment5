@@ -1,5 +1,5 @@
 package edu.wmich.cs1120.la5;
 
-public class IOperation {
-
+public interface IOperation {
+	public Integer perform(IExpression left, IExpression right);
 }

@@ -88,5 +88,6 @@ public class MapCreatorFromTxt implements IMapCreator {
 		}
 		inFile.close();
 		getScanner().setTerrain(terrain);
+		setTerrain(terrain);
 	}
 }

@@ -48,6 +48,24 @@ public class Rover implements IRover {
 	public ArrayList<IArea> getPath()         
 		{return path;}
 	
+	public void analyzePath() {
+		
+	}
+	
+	public String getAnalysis() {
+		String string = "";
+		return string;
+	}
+	
+	public void setAnalysis() {
+		
+	}
+	
+	public String toString() {
+		String string = "";
+		return string;
+	}
+	
 	/**
 	 * Calculates energy consumed by traveling along path.
 	 * @return totalEnergy

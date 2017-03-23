@@ -15,3 +15,10 @@
 /EnergyAnalyzer.class
 /ElevationAnalyzer.class
 /RadiationAnalyzer.class
+/MapCreatorFromDat.class
+/ExpressionFactory.class
+/IExpressionFactory.class
+/Literal.class
+/BinaryExpression.class
+/Addition.class
+/Subtraction.class

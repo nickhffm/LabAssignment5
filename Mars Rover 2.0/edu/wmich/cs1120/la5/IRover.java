@@ -38,5 +38,13 @@ public interface IRover {
 	 * @return totalEnergy
 	 */
 	
+	public void analyzePath();
+	
+	public String getAnalysis();
+	
+	public void setAnalysis();
+	
+	public String toString();
+	
 	public double calculateEnergy();
 }

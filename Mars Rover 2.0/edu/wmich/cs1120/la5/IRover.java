@@ -11,6 +11,8 @@ import edu.wmich.cs1120.la5.IMapCreator;
  */
 public interface IRover {
 	
+	public IMapCreator mc = new IMap;
+	
 	/**
 	 * Returns MapCreator object.
 	 * @return

@@ -10,6 +10,4 @@ public class LA5Main {
 	public static void main(String[] args) {
 		MainWindow.startGUI();
 	}
-	
-	public static void setTerrain(IArea[][] pTerrain) {terrain = pTerrain;}
 }

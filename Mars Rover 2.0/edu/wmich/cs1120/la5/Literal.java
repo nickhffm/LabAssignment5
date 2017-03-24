@@ -24,6 +24,7 @@ public class Literal implements IExpression {
 	 * 
 	 * @return value
 	 */
+	@Override
 	public Integer getValue() {
 		return value;
 	}

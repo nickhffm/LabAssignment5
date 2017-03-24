@@ -13,6 +13,7 @@ public class Subtraction implements IOperation {
 	 * 
 	 * @return calculated Integer
 	 */
+	@Override
 	public Integer perform(IExpression left, IExpression right) {
 		return left.getValue() + right.getValue();
 	}

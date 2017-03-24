@@ -30,6 +30,7 @@ public class BinaryExpression implements IExpression {
 	 * 
 	 * @return Integer
 	 */
+	@Override
 	public Integer getValue() {
 		return op.perform(new Literal(this.left), new Literal(this.right));
 	}

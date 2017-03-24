@@ -21,6 +21,7 @@ public class MapCreatorFromDat implements IMapCreator {
 	 * @param fileName
 	 * @param threshold
 	 */
+	@Override
 	public void scanTerrain(String fileName, int threshold) throws FileNotFoundException {
 		
 		RandomAccessFile dataFile = new RandomAccessFile(fileName, "r");
@@ -51,6 +52,7 @@ public class MapCreatorFromDat implements IMapCreator {
 	 * Returns TerrainScanner object.
 	 * @return ts
 	 */
+	@Override
 	public TerrainScanner getScanner() {
 		return ts;
 	}
@@ -59,6 +61,7 @@ public class MapCreatorFromDat implements IMapCreator {
 	 * Sets TerrainScanner object.
 	 * @param scanner
 	 */
+	@Override
 	public void setScanner(TerrainScanner scanner) {
 		ts = scanner;
 	}
@@ -67,6 +70,7 @@ public class MapCreatorFromDat implements IMapCreator {
 	 * Sets IArea array of objects
 	 * @param terrain
 	 */
+	@Override
 	public void setTerrain(IArea[][] terrain) {
 		this.terrain = terrain;
 	}
@@ -75,6 +79,7 @@ public class MapCreatorFromDat implements IMapCreator {
 	 * Returns IArea array of objects
 	 * @param terrain
 	 */
+	@Override
 	public IArea[][] getTerrain() {
 		return terrain;
 	}

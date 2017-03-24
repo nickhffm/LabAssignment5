@@ -51,5 +51,4 @@ public class EnergyAnalyzer implements IRover {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
 }

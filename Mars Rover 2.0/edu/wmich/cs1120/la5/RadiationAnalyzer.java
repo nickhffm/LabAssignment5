@@ -51,5 +51,4 @@ public class RadiationAnalyzer implements IRover {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
 }

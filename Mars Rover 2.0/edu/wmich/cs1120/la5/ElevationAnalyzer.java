@@ -4,52 +4,42 @@ import java.util.ArrayList;
 
 public class ElevationAnalyzer implements IRover {
 
-	@Override
-	public IMapCreator getMapCreator() {
-		// TODO Auto-generated method stub
-		return null;
+	String analysis;
+	String string;
+	double totalEnergyCost;
+	IMapCreator mc;
+	ArrayList<IArea> path;
+	
+	public IMapCreator getMapCreator() {return mc;}
+	public void setMapCreator(IMapCreator mc) {this.mc = mc;}
+
+	public ArrayList<IArea> getPath() {return path;}
+	public void setPath(int startRow, int startColumn) {
+		path = mc.getScanner().getPath(startRow, startColumn);
 	}
 
-	@Override
-	public void setMapCreator(IMapCreator mc) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public ArrayList<IArea> getPath() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setPath(int startRow, int startCol) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void analyzePath() {
-		// TODO Auto-generated method stub
-		
+		totalEnergyCost = 0;
+		for (int i = 0; i < path.size(); i++) {
+			totalEnergyCost += path.get(i).calcConsumedEnergy();
+		}
 	}
 
-	@Override
-	public String getAnalysis() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
+	public String getAnalysis() {return analysis;}
 	public void setAnalysis() {
-		// TODO Auto-generated method stub
-		
+		analysis = String.format("Energy Information: %f", totalEnergyCost);
 	}
 
-	@Override
 	public double calculateEnergy() {
-		// TODO Auto-generated method stub
-		return 0;
+		double totalEnergy = 0;
+		for (int i = 0; i < path.size(); i++) {
+			totalEnergy += path.get(i).calcConsumedEnergy();
+		}
+		return totalEnergy;
 	}
 	
+	public String toString() {
+		string = "Energy Information: ";
+		return string;
+	}
 }

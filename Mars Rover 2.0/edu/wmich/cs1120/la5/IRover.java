@@ -11,8 +11,6 @@ import edu.wmich.cs1120.la5.IMapCreator;
  */
 public interface IRover {
 	
-	public IMapCreator mc = new IMap;
-	
 	/**
 	 * Returns MapCreator object.
 	 * @return
@@ -34,7 +32,7 @@ public interface IRover {
 	 * @param startRow
 	 * @param startCol
 	 */
-	public void setPath(int startRow, int startCol);
+	public void setPath(int startRow, int startColumn);
 	/**
 	 * Calculates energy consumed along path.
 	 * @return totalEnergy

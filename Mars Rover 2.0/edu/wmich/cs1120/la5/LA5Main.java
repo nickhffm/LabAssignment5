@@ -10,7 +10,7 @@ import edu.wmich.cs1120.la5.gui.MainWindow;
  */
 public class LA5Main {
 	
-	static IArea[][] terrain;
+	//static IArea[][] terrain;
 
 	/**
 	 * Launches the GUI
@@ -19,5 +19,10 @@ public class LA5Main {
 	 */
 	public static void main(String[] args) {
 		MainWindow.startGUI();
+		IMapCreator mc = new MapCreatorFromTxt();
+		TerrainScanner ts = mc.getScanner();
+		IArea[][] terrain = ts.getTerrain();
+		IRover rover = new EnergyAnalyzer();
+		
 	}
 }

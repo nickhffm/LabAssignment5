@@ -4,33 +4,43 @@ import java.util.ArrayList;
 
 public class RadiationAnalyzer implements IRover {
 
-	@Override
-	public ArrayList<IArea> getPath() {
-		// TODO Auto-generated method stub
-		return null;
+
+	String analysis;
+	String string;
+	double totalEnergyCost;
+	IMapCreator mc;
+	ArrayList<IArea> path;
+	
+	public IMapCreator getMapCreator() {return mc;}
+	public void setMapCreator(IMapCreator mc) {this.mc = mc;}
+
+	public ArrayList<IArea> getPath() {return path;}
+	public void setPath(int startRow, int startColumn) {
+		path = mc.getScanner().getPath(startRow, startColumn);
 	}
 
-	@Override
 	public void analyzePath() {
-		// TODO Auto-generated method stub
+		totalEnergyCost = 0;
+		for (int i = 0; i < path.size(); i++) {
+			totalEnergyCost += path.get(i).calcConsumedEnergy();
+		}
+	}
 		
+	public String getAnalysis() {return analysis;}
+	public void setAnalysis() {
+		analysis = String.format("Energy Information: %f", totalEnergyCost);
 	}
 
-	@Override
-	public String getAnalysis() {
-		// TODO Auto-generated method stub
-		return null;
+	public double calculateEnergy() {
+		double totalEnergy = 0;
+		for (int i = 0; i < path.size(); i++) {
+			totalEnergy += path.get(i).calcConsumedEnergy();
+		}
+		return totalEnergy;
 	}
-
-	@Override
-	public void setPath(ArrayList<IArea> path) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setAnalysis(String analysis) {
-		// TODO Auto-generated method stub
-		
+	
+	public String toString() {
+		string = "Energy Information: ";
+		return string;
 	}
 }

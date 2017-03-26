@@ -11,14 +11,40 @@ import edu.wmich.cs1120.la5.IMapCreator;
  */
 public interface IRover {
 	
-	ArrayList<IArea> getPath();
-	// Set the path to be the given argument
-	void setPath(ArrayList<IArea> path);
-	// Analyze the path according to the type of the analyzer
-	void analyzePath();
-	// Get the result of the analysis according to the type of the analyzer
-	String getAnalysis();
-	void setAnalysis(String analysis);
-	// Return the name of the analyzer
-	String toString();
+	/**
+	 * Returns MapCreator object.
+	 * @return
+	 */
+	public IMapCreator getMapCreator();
+	/**
+	 * Sets MapCreator object.
+	 * @param mc
+	 */
+	public void setMapCreator(IMapCreator mc);
+	
+	/**
+	 * Returns ArrayList of path traveled by the Rover.
+	 * @return
+	 */
+	public ArrayList<IArea> getPath();
+	/**
+	 * Sets ArrayList of Area objects path.
+	 * @param startRow
+	 * @param startCol
+	 */
+	public void setPath(int startRow, int startColumn);
+	/**
+	 * Calculates energy consumed along path.
+	 * @return totalEnergy
+	 */
+	
+	public void analyzePath();
+	
+	public String getAnalysis();
+	
+	public void setAnalysis();
+	
+	public String toString();
+	
+	public double calculateEnergy();
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class EnergyAnalyzer implements IRover {
 
+
 	String analysis;
 	String string;
 	double totalEnergyCost;

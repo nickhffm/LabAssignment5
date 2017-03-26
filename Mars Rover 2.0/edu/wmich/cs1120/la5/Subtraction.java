@@ -15,6 +15,6 @@ public class Subtraction implements IOperation {
 	 */
 	@Override
 	public Integer perform(IExpression left, IExpression right) {
-		return left.getValue() + right.getValue();
+		return left.getValue() - right.getValue();
 	}
 }

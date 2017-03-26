@@ -12,8 +12,8 @@ import java.io.RandomAccessFile;
  */
 public class MapCreatorFromDat implements IMapCreator {
 
-	TerrainScanner ts;
-	IArea[][] terrain;
+	private IArea[][] terrain = new Area[10][10];
+	private TerrainScanner ts = new TerrainScanner();
 	
 	/**
 	 * Read from the file, set up the IArea[10][10] and set the terrain for the object of TerrainScanner
@@ -25,27 +25,70 @@ public class MapCreatorFromDat implements IMapCreator {
 	public void scanTerrain(String fileName, int threshold) throws FileNotFoundException {
 		
 		RandomAccessFile dataFile = new RandomAccessFile(fileName, "r");
-		int pos;
+		double basicEnergyCost, elevation, radiation;
 		
-		for (int r=0; r<terrain.length; r++) {
-			for (int c=0; c<terrain[0].length; c++) {
+		String header = String.format("%12s %12s %12s %12s", 
+				"basic_energy", "elevation", "radiation", "energy_cost");
+		System.out.println(header);
+		
+		int r=0;
+		int c=0;
+		int position = 0;
+		
+		do {
+			try {
+				dataFile.seek(position*34);
 				
-				try {
-					terrain[r][c].setBasicEnergyCost(dataFile.readDouble());
-					terrain[r][c].setElevation(dataFile.readDouble());
-					terrain[r][c].setRadiation(dataFile.readDouble());
-					char operator = dataFile.readChar();
-					int val1 = dataFile.readInt();
-					int val2 = dataFile.readInt();
-					IExpression ef = ExpressionFactory.getExpression(operator, val1, val2);
-					dataFile.seek(ef.getValue());
-				}
-				catch (IOException e) {
-					throw new RuntimeException("End of file, incomplete array");
+				basicEnergyCost = dataFile.readDouble();
+				elevation = dataFile.readDouble();
+				radiation = dataFile.readDouble();
+				
+				char operator = dataFile.readChar();
+				int val1 = dataFile.readInt();
+				int val2 = dataFile.readInt();
+				
+				if ((radiation < .5 && elevation > threshold * .5) || (radiation >= .5)) {
+					Area oneLocation = new HighArea();
+					oneLocation.setBasicEnergyCost(basicEnergyCost);
+					oneLocation.setElevation(elevation);
+					oneLocation.setRadiation(radiation);
+					oneLocation.setEnergy_Cost(basicEnergyCost);
+					terrain[r][c] = oneLocation;
+					System.out.println(oneLocation.toString());
+				} else {
+					Area oneLocation = new LowArea();
+					oneLocation.setBasicEnergyCost(basicEnergyCost);
+					oneLocation.setElevation(elevation);
+					oneLocation.setRadiation(radiation);
+					oneLocation.setEnergy_Cost(basicEnergyCost);
+					terrain[r][c] = oneLocation;
+					System.out.println(oneLocation.toString());
+				}	
+				
+				IExpression ef = ExpressionFactory.getExpression(operator, val1, val2);
+				position = ef.getValue();
+				
+				c++;
+				if (c == 10) {
+					r++;
+					c = 0;
 				}
 			}
-		}
+			
+			catch (IOException e) {
+				System.out.println("Invalid file format");
+			}
+			
+		} while(position != -1);
 		
+		try {
+			dataFile.close();
+		} 
+		catch (IOException e) {
+			System.out.println("Unable to close file.");
+		}
+		getScanner().setTerrain(terrain);
+		setTerrain(terrain);
 	}
 	
 	/**

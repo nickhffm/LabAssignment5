@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class RadiationAnalyzer implements IRover {
 
+
 	String analysis;
 	String string;
 	double totalEnergyCost;
@@ -24,7 +25,7 @@ public class RadiationAnalyzer implements IRover {
 			totalEnergyCost += path.get(i).calcConsumedEnergy();
 		}
 	}
-
+		
 	public String getAnalysis() {return analysis;}
 	public void setAnalysis() {
 		analysis = String.format("Energy Information: %f", totalEnergyCost);

@@ -18,13 +18,6 @@ public class ElevationAnalyzer implements IRover {
 		path = mc.getScanner().getPath(startRow, startColumn);
 	}
 
-	public void analyzePath() {
-		totalEnergyCost = 0;
-		for (int i = 0; i < path.size(); i++) {
-			totalEnergyCost += path.get(i).calcConsumedEnergy();
-		}
-	}
-
 	public String getAnalysis() {return analysis;}
 	public void setAnalysis() {
 		analysis = String.format("Energy Information: %f", totalEnergyCost);

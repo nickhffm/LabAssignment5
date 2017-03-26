@@ -4,19 +4,12 @@ import java.util.ArrayList;
 
 public class EnergyAnalyzer implements IRover {
 
-
-	String analysis;
-	double totalEnergyCost;
-	IMapCreator mc;
-	ArrayList<IArea> path;
-	
-	public IMapCreator getMapCreator() {return mc;}
-	public void setMapCreator(IMapCreator mc) {this.mc = mc;}
+	String analysis = "";
+	double totalEnergyCost = 0;
+	ArrayList<IArea> path = new ArrayList<IArea>();
 
 	public ArrayList<IArea> getPath() {return path;}
-	public void setPath(int startRow, int startColumn) {
-		path = mc.getScanner().getPath(startRow, startColumn);
-	}
+	public void setPath(ArrayList<IArea> pPath) {path = pPath;}
 
 	public void analyzePath() {
 		for (int i = 0; i < path.size(); i++) {
@@ -25,20 +18,10 @@ public class EnergyAnalyzer implements IRover {
 	}
 
 	public String getAnalysis() {return analysis;}
-	public void setAnalysis() {
-		analysis = String.format("Energy Information: %f", totalEnergyCost);
-	}
-
-	public double calculateEnergy() {
-		double totalEnergy = 0;
-		for (int i = 0; i < path.size(); i++) {
-			totalEnergy += path.get(i).calcConsumedEnergy();
-		}
-		return totalEnergy;
-	}
+	public void setAnalysis(String analysis) {this.analysis = analysis;}
 	
 	public String toString() {
-		String label = "EnergyInformation: ";
+		String label = String.format("EnergyInformation: %f", totalEnergyCost);
 		return label;
 	}
 }

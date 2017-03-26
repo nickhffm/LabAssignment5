@@ -19,9 +19,5 @@ public class LA5Main {
 	 */
 	public static void main(String[] args) {
 		MainWindow.startGUI();
-		IMapCreator mc = new MapCreatorFromTxt();
-		TerrainScanner ts = mc.getScanner();
-		IArea[][] terrain = ts.getTerrain();
-		IRover rover = new EnergyAnalyzer();
 	}
 }

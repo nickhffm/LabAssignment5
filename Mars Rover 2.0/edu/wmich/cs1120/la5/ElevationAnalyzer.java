@@ -6,7 +6,7 @@ public class ElevationAnalyzer implements IRover {
 
 	String analysis;
 	String string;
-	double totalEnergyCost;
+	double averageElevation;
 	IMapCreator mc;
 	ArrayList<IArea> path;
 	
@@ -20,7 +20,15 @@ public class ElevationAnalyzer implements IRover {
 
 	public String getAnalysis() {return analysis;}
 	public void setAnalysis() {
-		analysis = String.format("Energy Information: %f", totalEnergyCost);
+		analysis = String.format("Elevation Information: %f", averageElevation);
+	}
+	
+	public void analyzePath() {
+		double elevation = 0;
+		for (int i = 0; i < path.size(); i++) {
+			elevation += path.get(i).getElevation();
+		}
+		averageElevation = elevation / path.size();
 	}
 
 	public double calculateEnergy() {
@@ -32,7 +40,7 @@ public class ElevationAnalyzer implements IRover {
 	}
 	
 	public String toString() {
-		string = "Energy Information: ";
+		string = "Elevation Information: ";
 		return string;
 	}
 }

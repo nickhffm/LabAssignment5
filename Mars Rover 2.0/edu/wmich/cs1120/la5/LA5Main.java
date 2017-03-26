@@ -23,6 +23,5 @@ public class LA5Main {
 		TerrainScanner ts = mc.getScanner();
 		IArea[][] terrain = ts.getTerrain();
 		IRover rover = new EnergyAnalyzer();
-		
 	}
 }

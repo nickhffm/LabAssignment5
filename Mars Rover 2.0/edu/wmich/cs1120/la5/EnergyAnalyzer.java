@@ -6,7 +6,6 @@ public class EnergyAnalyzer implements IRover {
 
 
 	String analysis;
-	String string;
 	double totalEnergyCost;
 	IMapCreator mc;
 	ArrayList<IArea> path;
@@ -20,7 +19,6 @@ public class EnergyAnalyzer implements IRover {
 	}
 
 	public void analyzePath() {
-		totalEnergyCost = 0;
 		for (int i = 0; i < path.size(); i++) {
 			totalEnergyCost += path.get(i).calcConsumedEnergy();
 		}
@@ -28,7 +26,7 @@ public class EnergyAnalyzer implements IRover {
 
 	public String getAnalysis() {return analysis;}
 	public void setAnalysis() {
-		analysis = String.format("Energy Information: %f", calculateEnergy());
+		analysis = String.format("Energy Information: %f", totalEnergyCost);
 	}
 
 	public double calculateEnergy() {
@@ -40,7 +38,7 @@ public class EnergyAnalyzer implements IRover {
 	}
 	
 	public String toString() {
-		string = "Energy Information: ";
-		return string;
+		String label = "EnergyInformation: ";
+		return label;
 	}
 }

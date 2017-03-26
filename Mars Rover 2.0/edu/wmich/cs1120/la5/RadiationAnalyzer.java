@@ -7,7 +7,7 @@ public class RadiationAnalyzer implements IRover {
 
 	String analysis;
 	String string;
-	double totalEnergyCost;
+	double totalRadiation;
 	IMapCreator mc;
 	ArrayList<IArea> path;
 	
@@ -20,15 +20,15 @@ public class RadiationAnalyzer implements IRover {
 	}
 
 	public void analyzePath() {
-		totalEnergyCost = 0;
+		totalRadiation = 0;
 		for (int i = 0; i < path.size(); i++) {
-			totalEnergyCost += path.get(i).calcConsumedEnergy();
+			totalRadiation += path.get(i).getRadiation();
 		}
 	}
 		
 	public String getAnalysis() {return analysis;}
 	public void setAnalysis() {
-		analysis = String.format("Energy Information: %f", totalEnergyCost);
+		analysis = String.format("Energy Information: %f", totalRadiation);
 	}
 
 	public double calculateEnergy() {
@@ -38,9 +38,9 @@ public class RadiationAnalyzer implements IRover {
 		}
 		return totalEnergy;
 	}
-	
+
 	public String toString() {
-		string = "Energy Information: ";
+		string = "Radiation Information: ";
 		return string;
 	}
 }

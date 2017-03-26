@@ -9,8 +9,6 @@ import edu.wmich.cs1120.la5.gui.MainWindow;
  *
  */
 public class LA5Main {
-	
-	//static IArea[][] terrain;
 
 	/**
 	 * Launches the GUI

@@ -2,8 +2,7 @@ package edu.wmich.cs1120.la5;
 
 import java.util.ArrayList;
 
-import edu.wmich.cs1120.la5.IArea;
-import edu.wmich.cs1120.la5.IMapCreator;
+//import edu.wmich.cs1120.la5.IArea;
 
 /**
  * Interface for the Rover class.
@@ -17,4 +16,5 @@ public interface IRover {
 	public String getAnalysis();
 	public void setAnalysis(String analysis);
 	public String toString();
+
 }

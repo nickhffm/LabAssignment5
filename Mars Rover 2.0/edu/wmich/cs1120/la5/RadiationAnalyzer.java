@@ -5,27 +5,9 @@ import java.util.ArrayList;
 public class RadiationAnalyzer implements IRover {
 
 	@Override
-	public IMapCreator getMapCreator() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setMapCreator(IMapCreator mc) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public ArrayList<IArea> getPath() {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public void setPath(int startRow, int startCol) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -41,14 +23,14 @@ public class RadiationAnalyzer implements IRover {
 	}
 
 	@Override
-	public void setAnalysis() {
+	public void setPath(ArrayList<IArea> path) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public double calculateEnergy() {
+	public void setAnalysis(String analysis) {
 		// TODO Auto-generated method stub
-		return 0;
+		
 	}
 }

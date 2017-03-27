@@ -5,14 +5,7 @@ import java.util.ArrayList;
 public class EnergyAnalyzer implements IRover {
 
 	public String analysis;
-	public double totalEnergyCost;
 	public ArrayList<IArea> path;
-	
-	public EnergyAnalyzer() {
-		analysis = "";
-		totalEnergyCost = 0.0;
-		path = new ArrayList<IArea>();
-	}
 	
 	@Override
 	public ArrayList<IArea> getPath() {return path;}
@@ -25,15 +18,15 @@ public class EnergyAnalyzer implements IRover {
 
 	@Override
 	public void analyzePath() {
+		double total = 0;
 		for (int i = 0; i < path.size(); i++) {
-			totalEnergyCost += path.get(i).calcConsumedEnergy();
+			total += path.get(i).calcConsumedEnergy();
 		}
+		setAnalysis(total + "");
 	}
 	
 	@Override
 	public String toString() {
-		analyzePath();
-		String label = String.format("EnergyInformation: %f", totalEnergyCost);
-		return label;
+		return "Energy Information:";
 	}
 }

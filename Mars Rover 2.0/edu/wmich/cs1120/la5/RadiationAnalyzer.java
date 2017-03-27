@@ -4,43 +4,35 @@ import java.util.ArrayList;
 
 public class RadiationAnalyzer implements IRover {
 
-
-	String analysis;
-	String string;
-	double totalEnergyCost;
-	IMapCreator mc;
-	ArrayList<IArea> path;
+	public String analysis;
+	public double totalRadiation;
+	public ArrayList<IArea> path;
 	
-	public IMapCreator getMapCreator() {return mc;}
-	public void setMapCreator(IMapCreator mc) {this.mc = mc;}
-
+	public RadiationAnalyzer() {
+		analysis = "";
+		totalRadiation = 0.0;
+		path = new ArrayList<IArea>();
+	}
+	
+	@Override
 	public ArrayList<IArea> getPath() {return path;}
-	public void setPath(int startRow, int startColumn) {
-		path = mc.getScanner().getPath(startRow, startColumn);
-	}
-
-	public void analyzePath() {
-		totalEnergyCost = 0;
-		for (int i = 0; i < path.size(); i++) {
-			totalEnergyCost += path.get(i).calcConsumedEnergy();
-		}
-	}
-		
+	@Override
+	public void setPath(ArrayList<IArea> path) {this.path = path;}
+	@Override
 	public String getAnalysis() {return analysis;}
-	public void setAnalysis() {
-		analysis = String.format("Energy Information: %f", totalEnergyCost);
+	@Override
+	public void setAnalysis(String analysis) {this.analysis = analysis;}
+	
+	@Override
+	public void analyzePath() {
+		for (int i = 0; i < path.size(); i++) {
+			totalRadiation += path.get(i).getRadiation();
+		}
 	}
 
-	public double calculateEnergy() {
-		double totalEnergy = 0;
-		for (int i = 0; i < path.size(); i++) {
-			totalEnergy += path.get(i).calcConsumedEnergy();
-		}
-		return totalEnergy;
-	}
-	
+	@Override
 	public String toString() {
-		string = "Energy Information: ";
-		return string;
+		String label = String.format("Radiation Information: %f", totalRadiation);
+		return label;
 	}
 }

@@ -12,13 +12,16 @@ import edu.wmich.cs1120.la5.TerrainScanner;
  */
 public class MapCreatorFromTxt implements IMapCreator {
 
-	private IArea[][] terrain = new Area[10][10];
-	private TerrainScanner ts = new TerrainScanner();
+	private IArea[][] terrain;
+	private TerrainScanner ts;
 	
 	/**
 	 * Empty constructor for the MapCreator class.
 	 */
-	public MapCreatorFromTxt() {}
+	public MapCreatorFromTxt() {
+		terrain = new Area[10][10];
+		ts = new TerrainScanner();
+	}
 
 	/**
 	 * Sets Area object matrix.

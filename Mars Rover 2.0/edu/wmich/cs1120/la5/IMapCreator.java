@@ -19,7 +19,7 @@ public interface IMapCreator {
 	
 	/**
 	 * Returns TerrainScanner object.
-	 * @return
+	 * @return scanner
 	 */
 	public TerrainScanner getScanner();
 	/**
@@ -28,7 +28,14 @@ public interface IMapCreator {
 	 */
 	public void setScanner(TerrainScanner scanner);
 	
+	/**
+	 * Sets terrain.
+	 * @param terrain
+	 */
 	public void setTerrain(IArea[][] terrain);
-	
+	/**
+	 * Returns terrain.
+	 * @return terrain
+	 */
 	public IArea[][] getTerrain();
 }

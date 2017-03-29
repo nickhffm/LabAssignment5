@@ -60,9 +60,6 @@ public class MapCreatorFromTxt implements IMapCreator {
 		String aLine;
 		String[] lineStrings;
 		double radiation, elevation, basicEnergyCost;
-		String header = String.format("%12s %12s %12s %12s", 
-				"basic_energy", "elevation", "radiation", "energy_cost");
-		System.out.println(header);
 		for (int i = 0; i < 10; i++) {
 			for (int j = 0; j < 10; j++) {
 				aLine = inFile.nextLine();
@@ -77,7 +74,6 @@ public class MapCreatorFromTxt implements IMapCreator {
 					oneLocation.setRadiation(radiation);
 					oneLocation.setEnergy_Cost(basicEnergyCost);
 					terrain[i][j] = oneLocation;
-					System.out.println(oneLocation.toString());
 				} else {
 					Area oneLocation = new LowArea();
 					oneLocation.setBasicEnergyCost(basicEnergyCost);
@@ -85,7 +81,6 @@ public class MapCreatorFromTxt implements IMapCreator {
 					oneLocation.setRadiation(radiation);
 					oneLocation.setEnergy_Cost(basicEnergyCost);
 					terrain[i][j] = oneLocation;
-					System.out.println(oneLocation.toString());
 				}	
 			}
 		}

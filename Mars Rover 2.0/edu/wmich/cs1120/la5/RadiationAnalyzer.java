@@ -2,37 +2,65 @@ package edu.wmich.cs1120.la5;
 
 import java.util.ArrayList;
 
+/**
+ * Class for gathering radiation information.
+ * @author Macallister Armstrong
+ */
 public class RadiationAnalyzer implements IRover {
 
 	public String analysis;
-	public double totalRadiation;
 	public ArrayList<IArea> path;
 	
-	public RadiationAnalyzer() {
-		analysis = "";
-		totalRadiation = 0.0;
-		path = new ArrayList<IArea>();
-	}
+	/**
+	 * Empty constructor for the RadiationAnalyzer class.
+	 */
+	public RadiationAnalyzer() {}
 	
+	/**
+	 * Returns path.
+	 * @return path
+	 */
 	@Override
 	public ArrayList<IArea> getPath() {return path;}
+	/**
+	 * Sets path.
+	 * @param path
+	 */
 	@Override
 	public void setPath(ArrayList<IArea> path) {this.path = path;}
+	
+	/**
+	 * Returns analysis.
+	 * @return analysis
+	 */
 	@Override
 	public String getAnalysis() {return analysis;}
+	/**
+	 * Sets analysis.
+	 * @param analysis
+	 */
 	@Override
 	public void setAnalysis(String analysis) {this.analysis = analysis;}
 	
+	/**
+	 * Analyzes path.
+	 */
 	@Override
 	public void analyzePath() {
+		double totalRadiation = 0;
 		for (int i = 0; i < path.size(); i++) {
 			totalRadiation += path.get(i).getRadiation();
 		}
+		setAnalysis(toString() + totalRadiation);
 	}
 
+	/**
+	 * Return label for the analyzer.
+	 * @return label
+	 */
 	@Override
 	public String toString() {
-		String label = String.format("Radiation Information: %f", totalRadiation);
+		String label = "Total Radiation: ";
 		return label;
 	}
 }

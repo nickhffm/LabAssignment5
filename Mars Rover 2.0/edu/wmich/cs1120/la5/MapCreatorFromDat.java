@@ -26,11 +26,6 @@ public class MapCreatorFromDat implements IMapCreator {
 		
 		RandomAccessFile dataFile = new RandomAccessFile(fileName, "r");
 		double basicEnergyCost, elevation, radiation;
-		
-		String header = String.format("%12s %12s %12s %12s", 
-				"basic_energy", "elevation", "radiation", "energy_cost");
-		System.out.println(header);
-		
 		int r=0;
 		int c=0;
 		int position = 0;
@@ -54,7 +49,6 @@ public class MapCreatorFromDat implements IMapCreator {
 					oneLocation.setRadiation(radiation);
 					oneLocation.setEnergy_Cost(basicEnergyCost);
 					terrain[r][c] = oneLocation;
-					System.out.println(oneLocation.toString());
 				} else {
 					Area oneLocation = new LowArea();
 					oneLocation.setBasicEnergyCost(basicEnergyCost);
@@ -62,7 +56,6 @@ public class MapCreatorFromDat implements IMapCreator {
 					oneLocation.setRadiation(radiation);
 					oneLocation.setEnergy_Cost(basicEnergyCost);
 					terrain[r][c] = oneLocation;
-					System.out.println(oneLocation.toString());
 				}	
 				
 				IExpression ef = ExpressionFactory.getExpression(operator, val1, val2);
@@ -120,7 +113,7 @@ public class MapCreatorFromDat implements IMapCreator {
 	
 	/**
 	 * Returns IArea array of objects
-	 * @param terrain
+	 * @return terrain
 	 */
 	@Override
 	public IArea[][] getTerrain() {

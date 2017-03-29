@@ -12,10 +12,10 @@ public class ExpressionFactory {
 	/**
 	 * This static method will create and return a proper object according to the arguments received
 	 * 
-	 * @param char operator
-	 * @param int val1
-	 * @param int val2
-	 * @return IExpression object
+	 * @param operator
+	 * @param val1
+	 * @param val2
+	 * @return object
 	 */
 	public static IExpression getExpression(char operator, int val1, int val2) {
 		switch (operator) {

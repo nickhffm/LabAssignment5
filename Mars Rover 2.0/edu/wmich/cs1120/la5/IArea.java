@@ -8,7 +8,8 @@ public interface IArea {
 	
 	/**
 	 * Returns basicEnergyCost.
-	 * @return basicEnergyCost	 */
+	 * @return basicEnergyCost	 
+	 */
 	double getBasicEnergyCost();
 	/**
 	 * Sets basicEnergyCost.

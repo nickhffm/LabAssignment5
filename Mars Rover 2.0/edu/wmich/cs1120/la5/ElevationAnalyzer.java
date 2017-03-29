@@ -47,12 +47,10 @@ public class ElevationAnalyzer implements IRover {
 	 */
 	@Override
 	public void analyzePath() {
-		double average_elevation = 0;
+    double total = 0;
 		for (int i = 0; i < path.size(); i++) {
-			average_elevation += path.get(i).getElevation();
+			total += path.get(i).getElevation();
 		}
-		average_elevation /= path.size();
-		setAnalysis(toString() + String.format("%.6f", average_elevation));
 	}
 	
 	/**

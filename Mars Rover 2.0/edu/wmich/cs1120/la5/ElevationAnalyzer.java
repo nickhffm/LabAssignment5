@@ -51,6 +51,7 @@ public class ElevationAnalyzer implements IRover {
 		for (int i = 0; i < path.size(); i++) {
 			total += path.get(i).getElevation();
 		}
+		setAnalysis(toString() + total);
 	}
 	
 	/**

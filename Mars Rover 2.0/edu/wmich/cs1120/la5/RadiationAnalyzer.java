@@ -52,7 +52,7 @@ public class RadiationAnalyzer implements IRover {
 		for (int i = 0; i < path.size(); i++) {
 			total += path.get(i).getRadiation();
 		}
-		setAnalysis(toString() + totalRadiation);
+		setAnalysis(toString() + total);
 	}
 
 	/**

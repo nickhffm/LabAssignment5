@@ -8,8 +8,8 @@ import java.util.ArrayList;
  */
 public class RadiationAnalyzer implements IRover {
 
-	public String analysis;
-	public ArrayList<IArea> path;
+	private String analysis;
+	private ArrayList<IArea> path;
 	
 	/**
 	 * Empty constructor for the RadiationAnalyzer class.
@@ -52,7 +52,7 @@ public class RadiationAnalyzer implements IRover {
 		for (int i = 0; i < path.size(); i++) {
 			total += path.get(i).getRadiation();
 		}
-		setAnalysis(toString() + totalRadiation);
+		setAnalysis(toString() + total);
 	}
 
 	/**

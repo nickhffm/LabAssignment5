@@ -8,8 +8,8 @@ import java.util.ArrayList;
  */
 public class ElevationAnalyzer implements IRover {
 
-	public String analysis;
-	public ArrayList<IArea> path;
+	private String analysis;
+	private ArrayList<IArea> path;
 	
 	/**
 	 * Empty constructor for the ElevationAnalyzer class.
@@ -51,6 +51,7 @@ public class ElevationAnalyzer implements IRover {
 		for (int i = 0; i < path.size(); i++) {
 			total += path.get(i).getElevation();
 		}
+		setAnalysis(toString() + total);
 	}
 	
 	/**
